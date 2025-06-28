@@ -1,37 +1,146 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voucher Teh Rio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Voucher Redeem</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #fff;
+      color: #000;
+    }
+    .header {
+      padding: 16px;
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+    }
+    .notice {
+      background-color: #ffe6f0;
+      color: #cc0066;
+      padding: 10px 16px;
+      font-size: 14px;
+    }
+    .voucher {
+      padding: 16px;
+    }
+    .voucher img {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+    }
+    .voucher-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+    .price {
+      color: #555;
+      margin-top: 4px;
+    }
+    .redeem-section {
+      padding: 16px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      margin: 16px;
+    }
+    .terms {
+      font-size: 13px;
+      margin-top: 16px;
+    }
+    .button {
+      width: calc(100% - 32px);
+      margin: 0 16px 24px;
+      background-color: #ffdc00;
+      color: #000;
+      font-weight: bold;
+      padding: 14px;
+      text-align: center;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+    }
+    .popup-box {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      width: 80%;
+      text-align: center;
+    }
+    .popup-box p {
+      margin: 8px 0;
+    }
+    .popup .actions {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-around;
+    }
+    .popup .actions button {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+    }
+    .cancel-btn {
+      background: #eee;
+    }
+    .confirm-btn {
+      background: #ffd700;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Masukkan Kode Voucher</h2>
-    <input type="text" id="voucherCode" placeholder="contoh: 62477796138" />
-    <button onclick="submitVoucher()">Submit</button>
-
-    <div class="modal" id="modalConfirm" style="display:none;">
-      <div class="modal-content">
-        <h3>No refunds after redemption</h3>
-        <p>
-          After tapping [Confirm], the voucher will be valid for 48 hours only.
-          It cannot be used or refunded once expired.
-        </p>
-        <button onclick="cancelModal()">Cancel</button>
-        <button onclick="confirmVoucher()">Confirm</button>
+  <div class="header">To be redeemed</div>
+  <div class="notice">
+    To ensure the validity of the coupon code, this coupon can only be redeemed upon arrival at the store. Please redeem it promptly to avoid expiration
+  </div>
+  <div class="voucher">
+    <img src="https://i.imgur.com/qzG9L5Y.png" alt="Teh Rio" />
+    <div class="voucher-title">Teh Rio 180ML</div>
+    <div class="price">Rp1.000</div>
+  </div>
+  <div class="redeem-section">
+    <b>Redeemable at 1 outlet</b>
+    <p>Zygisk_Hide<br>Jl. Telaga 1 No.159 Blok A.14<br>Open 10:00–22:00</p>
+  </div>
+  <div class="terms">
+    <b>Terms & Conditions</b>
+    <ul>
+      <li>Redemption time: Valid for 60 days</li>
+      <li>Usage time: Available during business hours</li>
+      <li>Refund Policy: No refunds after placing an order</li>
+      <li>Usage rules: In-Store Redemption</li>
+    </ul>
+  </div>
+  <div class="button" onclick="showPopup()">Redeem Voucher</div>  <div class="popup" id="popup">
+    <div class="popup-box">
+      <h3 style="color:#cc0066">No refunds after redemption</h3>
+      <p>After tapping [Confirm], the voucher will be valid for 48 hours only. It cannot be used or refunded once expired.</p>
+      <div class="actions">
+        <button class="cancel-btn" onclick="hidePopup()">Cancel</button>
+        <button class="confirm-btn" onclick="confirmRedeem()">Confirm</button>
       </div>
     </div>
-
-    <div class="voucher-info" id="voucherDisplay" style="display: none;">
-      <h3>Kode Voucher:</h3>
-      <p id="displayCode"></p>
-      <div id="qrcode"></div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
-  <script src="script.js"></script>
-</body>
+  </div>  <script>
+    function showPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+    function hidePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+    function confirmRedeem() {
+      alert("QR Code akan tampil di versi selanjutnya");
+      hidePopup();
+    }
+  </script></body>
 </html>
