@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voucher Teh Rio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Masukkan Kode Voucher</h2>
+    <input type="text" id="voucherCode" placeholder="contoh: 62477796138" />
+    <button onclick="submitVoucher()">Submit</button>
+
+    <div class="modal" id="modalConfirm" style="display:none;">
+      <div class="modal-content">
+        <h3>No refunds after redemption</h3>
+        <p>
+          After tapping [Confirm], the voucher will be valid for 48 hours only.
+          It cannot be used or refunded once expired.
+        </p>
+        <button onclick="cancelModal()">Cancel</button>
+        <button onclick="confirmVoucher()">Confirm</button>
+      </div>
+    </div>
+
+    <div class="voucher-info" id="voucherDisplay" style="display: none;">
+      <h3>Kode Voucher:</h3>
+      <p id="displayCode"></p>
+      <div id="qrcode"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
